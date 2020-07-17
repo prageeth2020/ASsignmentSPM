@@ -26,6 +26,12 @@ public class Home {
         panel2.setBounds(0,40,width1,screenSize.height);
         panel2.setBackground(Color.white);
 
+        JPanel panel3 =new JPanel();
+        panel3.setBounds(140,40,1500,screenSize.height);
+        panel3.setLayout(new BoxLayout(panel3, BoxLayout.X_AXIS));
+        panel3.setBackground(Color.BLUE);
+
+
         JLabel Close , Name , icon1 , icon2 , icon3 , icon4;
 
         Name = new JLabel("<html><span style='font-size:20px'><font color='white' > Time Table Creation</font></span></html>");
@@ -55,8 +61,13 @@ public class Home {
 
         panel2.add(icon1);
         panel2.add(icon2);
+
+
+        panel3.add(icon3);
+
         f.add(panel1);
         f.add(panel2);
+        f.add(panel3);
 
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Already there
         f.setExtendedState(JFrame.MAXIMIZED_BOTH);
