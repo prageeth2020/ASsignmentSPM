@@ -27,12 +27,16 @@ public class Home {
 
         JLabel Close , Name , icon1 , icon2 , icon3 , icon4;
 
-        Name = new JLabel("Time Table Creator");
-        Name.setFont(Name.getFont().deriveFont(20f));
+        Name = new JLabel("<html><span style='font-size:20px'><font color='white' > Time Table Creation</font></span></html>");
+
         Name.setForeground(Color.WHITE);
-        Name.setSize(new Dimension(500 , 40));
-        Close = new JLabel("X");
+        Name.setPreferredSize(new Dimension( (int) (screenSize.width * 0.95), 40));
+
+        Close = new JLabel("<html><span style='font-size:20px'><font align='center' > X </font></span></html>");
         Close.setFont(Close.getFont().deriveFont(20f));
+        Close.setOpaque(true);
+        Close.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.red));
+        Close.setBackground(Color.red);
         Close.setForeground(Color.WHITE);
 
         icon1 = new JLabel(new ImageIcon("./src/interfaces/JlabelIcon1.png"));
