@@ -19,6 +19,10 @@ public class Home {
         panel1.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS));
         panel1.setBackground(Color.pink);
 
+        JPanel panel2=new JPanel();
+        panel2.setBounds(0,0,100,screenSize.height);
+        panel2.setBackground(Color.WHITE);
+
         JLabel Close , Name;
 
         Name = new JLabel("Time Table Creator");
@@ -33,6 +37,7 @@ public class Home {
         panel1.add(Close);
 
         f.add(panel1);
+        f.add(panel2);
 
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Already there
         f.setExtendedState(JFrame.MAXIMIZED_BOTH);
