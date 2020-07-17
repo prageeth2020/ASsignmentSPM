@@ -1,6 +1,7 @@
 package interfaces;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -32,12 +33,13 @@ public class Home {
         Name.setForeground(Color.WHITE);
         Name.setPreferredSize(new Dimension( (int) (screenSize.width * 0.95), 40));
 
-        Close = new JLabel("<html><span style='font-size:20px'><font align='center' > X </font></span></html>");
+        Close = new JLabel("<html><span style='font-size:20px'><font align='center' > X </font></span></html>" , SwingConstants.CENTER);
         Close.setFont(Close.getFont().deriveFont(20f));
         Close.setOpaque(true);
-        Close.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.red));
+        Close.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.red) );
         Close.setBackground(Color.red);
         Close.setForeground(Color.WHITE);
+
 
         icon1 = new JLabel(new ImageIcon("./src/interfaces/JlabelIcon1.png"));
         icon1.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
