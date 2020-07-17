@@ -6,6 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class Home {
+
     public static void main(String[] args) {
 
         JFrame f= new JFrame("Temple Run");
@@ -20,22 +21,34 @@ public class Home {
         panel1.setBackground(Color.pink);
 
         JPanel panel2=new JPanel();
-        panel2.setBounds(0,0,100,screenSize.height);
-        panel2.setBackground(Color.WHITE);
+        int width1 = (int) (screenSize.width * 0.05);
+        panel2.setBounds(0,40,width1,screenSize.height);
+        panel2.setBackground(Color.white);
 
-        JLabel Close , Name;
+        JLabel Close , Name , icon1 , icon2 , icon3 , icon4;
 
         Name = new JLabel("Time Table Creator");
         Name.setFont(Name.getFont().deriveFont(20f));
         Name.setForeground(Color.WHITE);
-        Name.setSize(new Dimension(100 , 40));
+        Name.setSize(new Dimension(500 , 40));
         Close = new JLabel("X");
         Close.setFont(Close.getFont().deriveFont(20f));
         Close.setForeground(Color.WHITE);
 
+        icon1 = new JLabel(new ImageIcon("./src/interfaces/JlabelIcon1.png"));
+        icon1.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
+        //icon1.setOpaque(true);
+        icon2 = new JLabel("");
+        icon3 = new JLabel("");
+        icon4 = new JLabel("");
+        //icon1.setSize(new Dimension(95 , 40));
+
+
         panel1.add(Name);
         panel1.add(Close);
 
+        panel2.add(icon1);
+        panel2.add(icon2);
         f.add(panel1);
         f.add(panel2);
 
