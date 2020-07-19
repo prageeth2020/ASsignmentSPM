@@ -27,7 +27,7 @@ public class Home {
 
         JPanel panel3 =new JPanel();
         panel3.setBounds((int) (screenSize.width*0.05),(int) (screenSize.height*0.04),(int) (screenSize.width*0.95),screenSize.height);
-        panel3.setLayout(new BoxLayout(panel3, BoxLayout.Y_AXIS));
+       // panel3.setLayout(new BoxLayout(panel3, BoxLayout.Y_AXIS));
         panel3.setBackground(Color.white);
 
         JPanel panel4 =new JPanel();
@@ -53,6 +53,11 @@ public class Home {
 
         //Declare the Jlabels
         JLabel Close , Name , icon1 , icon2 , icon3 , icon4;
+        JLabel LectureLbl1 , LectureLbl2 , LectureLbl3 , LectureLbl4 , LectureLbl5 , LectureLbl6 , LectureLbl7;
+
+
+        //Declare JTextFields
+        JTextField Lecturetxt1 , Lecturetxt2 ,  Lecturetxt3 , Lecturetxt4 , Lecturetxt5 , Lecturetxt6 , Lecturetxt7 ;
 
         //Label for Topic
         Name = new JLabel("<html><span style='font-size:20px'><font color='white' > Time Table Creation</font></span></html>");
@@ -66,7 +71,6 @@ public class Home {
         Close.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.red) );
         Close.setBackground(Color.red);
         Close.setForeground(Color.WHITE);
-
 
         //Define LAbels for nav bar
         icon1 = new JLabel(new ImageIcon("./src/interfaces/JlabelIcon1.png"));
@@ -86,6 +90,54 @@ public class Home {
         icon4.setOpaque(true);
 
 
+        //Declare Labels
+        LectureLbl1 = new JLabel("Name");
+        LectureLbl1.setFont(LectureLbl1.getFont().deriveFont(20f));
+        LectureLbl2 = new JLabel("Name");
+        LectureLbl2.setFont(LectureLbl1.getFont().deriveFont(20f));
+        LectureLbl3 = new JLabel("Name");
+        LectureLbl3.setFont(LectureLbl1.getFont().deriveFont(20f));
+        LectureLbl4 = new JLabel("Name");
+        LectureLbl4.setFont(LectureLbl1.getFont().deriveFont(20f));
+        LectureLbl5 = new JLabel("Name");
+        LectureLbl5.setFont(LectureLbl1.getFont().deriveFont(20f));
+        LectureLbl6 = new JLabel("Name");
+        LectureLbl6.setFont(LectureLbl1.getFont().deriveFont(20f));
+        LectureLbl7 = new JLabel("Name");
+        LectureLbl7.setFont(LectureLbl1.getFont().deriveFont(20f));
+
+
+
+        //Declare TextFields
+        Lecturetxt1=new JTextField("");
+        Lecturetxt1.setFont(Lecturetxt1.getFont().deriveFont(20f));
+        Lecturetxt1.setPreferredSize( new Dimension( 400, 40 ) );
+
+        Lecturetxt2=new JTextField("");
+        Lecturetxt2.setFont(Lecturetxt2.getFont().deriveFont(20f));
+        Lecturetxt2.setPreferredSize( new Dimension( 400, 40 ) );
+
+        Lecturetxt3=new JTextField("");
+        Lecturetxt3.setFont(Lecturetxt3.getFont().deriveFont(20f));
+        Lecturetxt3.setPreferredSize( new Dimension( 400, 40 ) );
+
+        Lecturetxt4=new JTextField("");
+        Lecturetxt4.setFont(Lecturetxt4.getFont().deriveFont(20f));
+        Lecturetxt4.setPreferredSize( new Dimension( 400, 40 ) );
+
+        Lecturetxt5=new JTextField("");
+        Lecturetxt5.setFont(Lecturetxt5.getFont().deriveFont(20f));
+        Lecturetxt5.setPreferredSize( new Dimension( 400, 40 ) );
+
+        Lecturetxt6=new JTextField("");
+        Lecturetxt6.setFont(Lecturetxt6.getFont().deriveFont(20f));
+        Lecturetxt6.setPreferredSize( new Dimension( 400, 40 ) );
+
+        Lecturetxt7=new JTextField("");
+        Lecturetxt7.setFont(Lecturetxt7.getFont().deriveFont(20f));
+        Lecturetxt7.setPreferredSize( new Dimension( 400, 40 ) );
+
+
 
 
         //Adding thins to panel1(top Bar)
@@ -97,6 +149,27 @@ public class Home {
         panel2.add(icon2);
         panel2.add(icon3);
         panel2.add(icon4);
+
+        panel3.add(LectureLbl1);
+        panel3.add(Lecturetxt1);
+
+        panel3.add(LectureLbl2);
+        panel3.add(Lecturetxt2);
+
+        panel3.add(LectureLbl3);
+        panel3.add(Lecturetxt3);
+
+        panel3.add(LectureLbl4);
+        panel3.add(Lecturetxt4);
+
+        panel3.add(LectureLbl5);
+        panel3.add(Lecturetxt5);
+
+        panel3.add(LectureLbl6);
+        panel3.add(Lecturetxt6);
+
+        panel3.add(LectureLbl7);
+        panel3.add(Lecturetxt7);
 
 
 
