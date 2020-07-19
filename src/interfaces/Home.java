@@ -10,10 +10,12 @@ public class Home {
 
     public static void main(String[] args) {
 
+        //Create form
         JFrame f= new JFrame("Temple Run");
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         f.setBackground(Color.white);
 
+        //Creating Panels
         JPanel panel1=new JPanel();
         panel1.setBounds(0,0,screenSize.width,(int) (screenSize.height*0.04));
         panel1.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS));
@@ -43,18 +45,21 @@ public class Home {
         panel6.setLayout(new BoxLayout(panel6, BoxLayout.Y_AXIS));
         panel6.setBackground(Color.white);
 
+        //set Visibility of panels
         panel3.setVisible(true);
         panel4.setVisible(false);
         panel5.setVisible(false);
         panel6.setVisible(false);
 
+        //Declare the Jlabels
         JLabel Close , Name , icon1 , icon2 , icon3 , icon4;
 
+        //Label for Topic
         Name = new JLabel("<html><span style='font-size:20px'><font color='white' > Time Table Creation</font></span></html>");
-
         Name.setForeground(Color.WHITE);
         Name.setPreferredSize(new Dimension( (int) (screenSize.width * 0.95), (int) (screenSize.height*0.04)));
 
+        //Label for Close Button
         Close = new JLabel("<html><span style='font-size:20px'><font align='center' > X </font></span></html>" , SwingConstants.CENTER);
         Close.setFont(Close.getFont().deriveFont(20f));
         Close.setOpaque(true);
@@ -63,6 +68,7 @@ public class Home {
         Close.setForeground(Color.WHITE);
 
 
+        //Define LAbels for nav bar
         icon1 = new JLabel(new ImageIcon("./src/interfaces/JlabelIcon1.png"));
         icon1.setBackground(Color.white);
         icon1.setOpaque(true);
@@ -82,17 +88,19 @@ public class Home {
 
 
 
+        //Adding thins to panel1(top Bar)
         panel1.add(Name);
         panel1.add(Close);
 
+        //Adding thins to panel2(Nav Bar)
         panel2.add(icon1);
         panel2.add(icon2);
         panel2.add(icon3);
         panel2.add(icon4);
 
 
-        //panel3.add(icon3);
 
+        //Add all Panels to the Forms
         f.add(panel1);
         f.add(panel2);
         f.add(panel3);
@@ -101,6 +109,7 @@ public class Home {
         f.add(panel6);
 
 
+        //Form Properties
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Already there
         f.setExtendedState(JFrame.MAXIMIZED_BOTH);
         f.setUndecorated(true);
