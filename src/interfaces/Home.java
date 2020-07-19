@@ -28,6 +28,25 @@ public class Home {
         panel3.setLayout(new BoxLayout(panel3, BoxLayout.Y_AXIS));
         panel3.setBackground(Color.white);
 
+        JPanel panel4 =new JPanel();
+        panel4.setBounds((int) (screenSize.width*0.05),(int) (screenSize.height*0.04),(int) (screenSize.width*0.95),screenSize.height);
+        panel4.setLayout(new BoxLayout(panel4, BoxLayout.Y_AXIS));
+        panel4.setBackground(Color.green);
+
+        JPanel panel5 =new JPanel();
+        panel5.setBounds((int) (screenSize.width*0.05),(int) (screenSize.height*0.04),(int) (screenSize.width*0.95),screenSize.height);
+        panel5.setLayout(new BoxLayout(panel5, BoxLayout.Y_AXIS));
+        panel5.setBackground(Color.blue);
+
+        JPanel panel6 =new JPanel();
+        panel6.setBounds((int) (screenSize.width*0.05),(int) (screenSize.height*0.04),(int) (screenSize.width*0.95),screenSize.height);
+        panel6.setLayout(new BoxLayout(panel6, BoxLayout.Y_AXIS));
+        panel6.setBackground(Color.red);
+
+        panel3.setVisible(true);
+        panel4.setVisible(false);
+        panel5.setVisible(false);
+        panel6.setVisible(false);
 
         JLabel Close , Name , icon1 , icon2 , icon3 , icon4;
 
@@ -45,13 +64,14 @@ public class Home {
 
 
         icon1 = new JLabel(new ImageIcon("./src/interfaces/JlabelIcon1.png"));
-       // icon1.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
         icon1.setBackground(Color.white);
         icon1.setOpaque(true);
-        icon2 = new JLabel("");
-        icon3 = new JLabel("sgsg");
-        icon4 = new JLabel("");
-        //icon1.setSize(new Dimension(95 , 40));
+
+        icon2 = new JLabel(new ImageIcon("./src/interfaces/JlabelIcon1.png"));
+        icon2.setBackground(Color.lightGray);
+        icon2.setOpaque(true);
+
+
 
 
         panel1.add(Name);
@@ -61,11 +81,15 @@ public class Home {
         panel2.add(icon2);
 
 
-        panel3.add(icon3);
+        //panel3.add(icon3);
 
         f.add(panel1);
         f.add(panel2);
         f.add(panel3);
+        f.add(panel4);
+        f.add(panel5);
+        f.add(panel6);
+
 
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Already there
         f.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -82,6 +106,30 @@ public class Home {
                 System.exit(0);
             }
         });
+
+        icon1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                icon1.setBackground(Color.white);
+                icon2.setBackground(Color.lightGray);
+                panel3.setVisible(true);
+                panel4.setVisible(false);
+            }
+        });
+
+        icon2.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                panel3.setVisible(false);
+                panel4.setVisible(true);
+                icon2.setBackground(Color.white);
+                icon1.setBackground(Color.lightGray);
+            }
+        });
+
+
 
     }
 }
