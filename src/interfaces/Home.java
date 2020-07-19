@@ -12,24 +12,21 @@ public class Home {
 
         JFrame f= new JFrame("Temple Run");
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        f.setSize(1200,800);
-        f.setLocation(400,100);
         f.setBackground(Color.white);
 
         JPanel panel1=new JPanel();
-        panel1.setBounds(0,0,screenSize.width,40);
+        panel1.setBounds(0,0,screenSize.width,(int) (screenSize.height*0.04));
         panel1.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS));
         panel1.setBackground(Color.pink);
 
         JPanel panel2=new JPanel();
-        int width1 = (int) (screenSize.width * 0.05);
-        panel2.setBounds(0,40,width1,screenSize.height);
-        panel2.setBackground(Color.white);
+        panel2.setBounds(0,(int) (screenSize.height*0.04),(int) (screenSize.width * 0.05),screenSize.height);
+        panel2.setBackground(Color.lightGray);
 
         JPanel panel3 =new JPanel();
-        panel3.setBounds(140,40,1500,screenSize.height);
-        panel3.setLayout(new BoxLayout(panel3, BoxLayout.X_AXIS));
-        panel3.setBackground(Color.BLUE);
+        panel3.setBounds((int) (screenSize.width*0.05),(int) (screenSize.height*0.04),(int) (screenSize.width*0.95),screenSize.height);
+        panel3.setLayout(new BoxLayout(panel3, BoxLayout.Y_AXIS));
+        panel3.setBackground(Color.white);
 
 
         JLabel Close , Name , icon1 , icon2 , icon3 , icon4;
@@ -37,7 +34,7 @@ public class Home {
         Name = new JLabel("<html><span style='font-size:20px'><font color='white' > Time Table Creation</font></span></html>");
 
         Name.setForeground(Color.WHITE);
-        Name.setPreferredSize(new Dimension( (int) (screenSize.width * 0.95), 40));
+        Name.setPreferredSize(new Dimension( (int) (screenSize.width * 0.95), (int) (screenSize.height*0.04)));
 
         Close = new JLabel("<html><span style='font-size:20px'><font align='center' > X </font></span></html>" , SwingConstants.CENTER);
         Close.setFont(Close.getFont().deriveFont(20f));
@@ -48,10 +45,11 @@ public class Home {
 
 
         icon1 = new JLabel(new ImageIcon("./src/interfaces/JlabelIcon1.png"));
-        icon1.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
-        //icon1.setOpaque(true);
+       // icon1.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
+        icon1.setBackground(Color.white);
+        icon1.setOpaque(true);
         icon2 = new JLabel("");
-        icon3 = new JLabel("");
+        icon3 = new JLabel("sgsg");
         icon4 = new JLabel("");
         //icon1.setSize(new Dimension(95 , 40));
 
