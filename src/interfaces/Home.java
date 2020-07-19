@@ -71,6 +71,14 @@ public class Home {
         icon2.setBackground(Color.lightGray);
         icon2.setOpaque(true);
 
+        icon3 = new JLabel(new ImageIcon("./src/interfaces/JlabelIcon1.png"));
+        icon3.setBackground(Color.lightGray);
+        icon3.setOpaque(true);
+
+        icon4 = new JLabel(new ImageIcon("./src/interfaces/JlabelIcon1.png"));
+        icon4.setBackground(Color.lightGray);
+        icon4.setOpaque(true);
+
 
 
 
@@ -79,6 +87,8 @@ public class Home {
 
         panel2.add(icon1);
         panel2.add(icon2);
+        panel2.add(icon3);
+        panel2.add(icon4);
 
 
         //panel3.add(icon3);
@@ -113,8 +123,14 @@ public class Home {
                 super.mouseClicked(e);
                 icon1.setBackground(Color.white);
                 icon2.setBackground(Color.lightGray);
+                icon3.setBackground(Color.lightGray);
+                icon4.setBackground(Color.lightGray);
+
+
                 panel3.setVisible(true);
                 panel4.setVisible(false);
+                panel5.setVisible(false);
+                panel6.setVisible(false);
             }
         });
 
@@ -124,8 +140,49 @@ public class Home {
                 super.mouseClicked(e);
                 panel3.setVisible(false);
                 panel4.setVisible(true);
-                icon2.setBackground(Color.white);
+                panel5.setVisible(false);
+                panel6.setVisible(false);
+
                 icon1.setBackground(Color.lightGray);
+                icon2.setBackground(Color.white);
+                icon3.setBackground(Color.lightGray);
+                icon4.setBackground(Color.lightGray);
+
+            }
+        });
+
+        icon3.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                panel3.setVisible(false);
+                panel4.setVisible(false);
+                panel5.setVisible(true);
+                panel6.setVisible(false);
+
+                icon1.setBackground(Color.lightGray);
+                icon2.setBackground(Color.lightGray);
+                icon3.setBackground(Color.white);
+                icon4.setBackground(Color.lightGray);
+
+            }
+        });
+
+
+        icon4.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                panel3.setVisible(false);
+                panel4.setVisible(false);
+                panel5.setVisible(false);
+                panel6.setVisible(true);
+
+                icon1.setBackground(Color.lightGray);
+                icon2.setBackground(Color.lightGray);
+                icon3.setBackground(Color.lightGray);
+                icon4.setBackground(Color.white);
+
             }
         });
 
