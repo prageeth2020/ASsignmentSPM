@@ -41,7 +41,7 @@ public class Home {
         JPanel panel6 =new JPanel();
         panel6.setBounds((int) (screenSize.width*0.05),(int) (screenSize.height*0.04),(int) (screenSize.width*0.95),screenSize.height);
         panel6.setLayout(new BoxLayout(panel6, BoxLayout.Y_AXIS));
-        panel6.setBackground(Color.red);
+        panel6.setBackground(Color.CYAN);
 
         panel3.setVisible(true);
         panel4.setVisible(false);
