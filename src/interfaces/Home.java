@@ -31,17 +31,17 @@ public class Home {
         JPanel panel4 =new JPanel();
         panel4.setBounds((int) (screenSize.width*0.05),(int) (screenSize.height*0.04),(int) (screenSize.width*0.95),screenSize.height);
         panel4.setLayout(new BoxLayout(panel4, BoxLayout.Y_AXIS));
-        panel4.setBackground(Color.green);
+        panel4.setBackground(Color.white);
 
         JPanel panel5 =new JPanel();
         panel5.setBounds((int) (screenSize.width*0.05),(int) (screenSize.height*0.04),(int) (screenSize.width*0.95),screenSize.height);
         panel5.setLayout(new BoxLayout(panel5, BoxLayout.Y_AXIS));
-        panel5.setBackground(Color.blue);
+        panel5.setBackground(Color.white);
 
         JPanel panel6 =new JPanel();
         panel6.setBounds((int) (screenSize.width*0.05),(int) (screenSize.height*0.04),(int) (screenSize.width*0.95),screenSize.height);
         panel6.setLayout(new BoxLayout(panel6, BoxLayout.Y_AXIS));
-        panel6.setBackground(Color.CYAN);
+        panel6.setBackground(Color.white);
 
         panel3.setVisible(true);
         panel4.setVisible(false);
