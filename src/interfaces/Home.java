@@ -26,9 +26,10 @@ public class Home {
         panel2.setBackground(Color.lightGray);
 
         JPanel panel3 =new JPanel();
-        panel3.setBounds((int) (screenSize.width*0.05),(int) (screenSize.height*0.04),(int) (screenSize.width*0.95),screenSize.height);
-       // panel3.setLayout(new BoxLayout(panel3, BoxLayout.Y_AXIS));
+        panel3.setBounds((int) (screenSize.width*0.05),(int) (screenSize.height*0.04),(int) (screenSize.width*0.25),screenSize.height);
         panel3.setBackground(Color.white);
+        //panel3.setLayout(null);
+
 
         JPanel panel4 =new JPanel();
         panel4.setBounds((int) (screenSize.width*0.05),(int) (screenSize.height*0.04),(int) (screenSize.width*0.95),screenSize.height);
@@ -93,49 +94,58 @@ public class Home {
         //Declare Labels
         LectureLbl1 = new JLabel("Name");
         LectureLbl1.setFont(LectureLbl1.getFont().deriveFont(20f));
+        LectureLbl1.setPreferredSize(new Dimension( (int) (screenSize.width * 0.25), (int) (screenSize.height*0.04)));
         LectureLbl2 = new JLabel("Name");
         LectureLbl2.setFont(LectureLbl1.getFont().deriveFont(20f));
+        LectureLbl2.setPreferredSize(new Dimension( (int) (screenSize.width * 0.25), (int) (screenSize.height*0.04)));
         LectureLbl3 = new JLabel("Name");
         LectureLbl3.setFont(LectureLbl1.getFont().deriveFont(20f));
+        LectureLbl3.setPreferredSize(new Dimension( (int) (screenSize.width * 0.25), (int) (screenSize.height*0.04)));
         LectureLbl4 = new JLabel("Name");
         LectureLbl4.setFont(LectureLbl1.getFont().deriveFont(20f));
+        LectureLbl4.setPreferredSize(new Dimension( (int) (screenSize.width * 0.25), (int) (screenSize.height*0.04)));
         LectureLbl5 = new JLabel("Name");
         LectureLbl5.setFont(LectureLbl1.getFont().deriveFont(20f));
+        LectureLbl5.setPreferredSize(new Dimension( (int) (screenSize.width * 0.25), (int) (screenSize.height*0.04)));
         LectureLbl6 = new JLabel("Name");
         LectureLbl6.setFont(LectureLbl1.getFont().deriveFont(20f));
+        LectureLbl6.setPreferredSize(new Dimension( (int) (screenSize.width * 0.25), (int) (screenSize.height*0.04)));
         LectureLbl7 = new JLabel("Name");
         LectureLbl7.setFont(LectureLbl1.getFont().deriveFont(20f));
+        LectureLbl7.setPreferredSize(new Dimension( (int) (screenSize.width * 0.25), (int) (screenSize.height*0.04)));
+        LectureLbl7.setPreferredSize(new Dimension( (int) (screenSize.width * 0.25), (int) (screenSize.height*0.04)));
 
 
 
         //Declare TextFields
         Lecturetxt1=new JTextField("");
         Lecturetxt1.setFont(Lecturetxt1.getFont().deriveFont(20f));
-        Lecturetxt1.setPreferredSize( new Dimension( 400, 40 ) );
+        Lecturetxt1.setPreferredSize( new Dimension( (int) (screenSize.width * 0.25), (int) (screenSize.height*0.04)));
 
         Lecturetxt2=new JTextField("");
         Lecturetxt2.setFont(Lecturetxt2.getFont().deriveFont(20f));
-        Lecturetxt2.setPreferredSize( new Dimension( 400, 40 ) );
+        Lecturetxt2.setPreferredSize( new Dimension( (int) (screenSize.width * 0.25), (int) (screenSize.height*0.04)));
+
 
         Lecturetxt3=new JTextField("");
         Lecturetxt3.setFont(Lecturetxt3.getFont().deriveFont(20f));
-        Lecturetxt3.setPreferredSize( new Dimension( 400, 40 ) );
+        Lecturetxt3.setPreferredSize( new Dimension( (int) (screenSize.width * 0.25), (int) (screenSize.height*0.04)));
 
         Lecturetxt4=new JTextField("");
         Lecturetxt4.setFont(Lecturetxt4.getFont().deriveFont(20f));
-        Lecturetxt4.setPreferredSize( new Dimension( 400, 40 ) );
+        Lecturetxt4.setPreferredSize( new Dimension( (int) (screenSize.width * 0.25), (int) (screenSize.height*0.04)));
 
         Lecturetxt5=new JTextField("");
         Lecturetxt5.setFont(Lecturetxt5.getFont().deriveFont(20f));
-        Lecturetxt5.setPreferredSize( new Dimension( 400, 40 ) );
+        Lecturetxt5.setPreferredSize( new Dimension( (int) (screenSize.width * 0.25), (int) (screenSize.height*0.04)));
 
         Lecturetxt6=new JTextField("");
         Lecturetxt6.setFont(Lecturetxt6.getFont().deriveFont(20f));
-        Lecturetxt6.setPreferredSize( new Dimension( 400, 40 ) );
+        Lecturetxt6.setPreferredSize( new Dimension( (int) (screenSize.width * 0.25), (int) (screenSize.height*0.04)));
 
         Lecturetxt7=new JTextField("");
         Lecturetxt7.setFont(Lecturetxt7.getFont().deriveFont(20f));
-        Lecturetxt7.setPreferredSize( new Dimension( 400, 40 ) );
+        Lecturetxt7.setPreferredSize( new Dimension( (int) (screenSize.width * 0.25), (int) (screenSize.height*0.04)));
 
 
 
@@ -149,6 +159,7 @@ public class Home {
         panel2.add(icon2);
         panel2.add(icon3);
         panel2.add(icon4);
+
 
         panel3.add(LectureLbl1);
         panel3.add(Lecturetxt1);
