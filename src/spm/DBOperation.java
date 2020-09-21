@@ -47,7 +47,7 @@ public class DBOperation {
     boolean addSubject(Subject s) {
         try {
             con = (Connection) DriverManager.getConnection(url, username, password);
-            String query = "Insert into student values (?,?,?,?,?,?)";
+            String query = "Insert into student values (?,?,?,?,?,?,?,?)";
             pst = (PreparedStatement) con.prepareStatement(query);
 
             pst.setInt(1, s.getSid());
@@ -56,6 +56,8 @@ public class DBOperation {
             pst.setString(4, s.getProgram());
             pst.setString(5, s.getGroupNo());
             pst.setString(6, s.getSubGroupNo());
+            pst.setString(7, s.getAcademicYear()+ "." + s.getSemester() + "." + s.getProgram() + "." + s.getGroupNo());
+            pst.setString(8, s.getAcademicYear()+ "." + s.getSemester() + "." + s.getProgram() + "." + s.getGroupNo() + "." + s.getSubGroupNo());
 
             pst.executeUpdate();
 
