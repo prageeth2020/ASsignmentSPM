@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -62,7 +63,7 @@ public class NotAvailableTimes extends javax.swing.JFrame {
             rs = pst.executeQuery();
             
             while(rs.next()){
-                jComboBox3.addItem((rs.getString("startTime")));
+                ComboBoxAt1.addItem((rs.getString("startTime")));
                 jComboBox9.addItem((rs.getString("startTime")));
                 jComboBox12.addItem((rs.getString("startTime")));
             }
@@ -121,8 +122,8 @@ public class NotAvailableTimes extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        ComboBoxOn1 = new javax.swing.JComboBox<>();
+        ComboBoxAt1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -164,10 +165,10 @@ public class NotAvailableTimes extends javax.swing.JFrame {
 
         jLabel3.setText("At");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monday ", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        ComboBoxOn1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monday ", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
+        ComboBoxOn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                ComboBoxOn1ActionPerformed(evt);
             }
         });
 
@@ -182,8 +183,8 @@ public class NotAvailableTimes extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ComboBoxOn1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ComboBoxAt1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(56, 56, 56))
         );
         jPanel2Layout.setVerticalGroup(
@@ -192,11 +193,11 @@ public class NotAvailableTimes extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ComboBoxOn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ComboBoxAt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -227,6 +228,11 @@ public class NotAvailableTimes extends javax.swing.JFrame {
         );
 
         jButton1.setText("Not Available Times For Lecturers");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -375,8 +381,18 @@ public class NotAvailableTimes extends javax.swing.JFrame {
         );
 
         jButton3.setText("Not Available Times For Groups");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Not Available Times For Sub Groups");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -503,22 +519,21 @@ public class NotAvailableTimes extends javax.swing.JFrame {
                         .addGap(33, 33, 33)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE))
+                        .addComponent(jButton3))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton4)))
-                .addGap(63, 63, 63))
+                .addGap(2002, 2002, 2002))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void ComboBoxOn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxOn1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_ComboBoxOn1ActionPerformed
 
     private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
         // TODO add your handling code here:
@@ -531,6 +546,62 @@ public class NotAvailableTimes extends javax.swing.JFrame {
     private void jComboBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox11ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox11ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        NotAvailableTimesForLecturers time = new NotAvailableTimesForLecturers();
+        time.setId(0);
+        time.setName(jComboBox1.getSelectedItem().toString());
+        time.setOn(ComboBoxOn1.getSelectedItem().toString());
+        time.setAt(ComboBoxAt1.getSelectedItem().toString());
+        
+        boolean result = db.addNotAvailableTimesForLecturers(time);
+
+        if(result){
+                JOptionPane.showMessageDialog(this, "Successfully Saved");
+                 clearFields();          }
+        else{
+                JOptionPane.showMessageDialog(this, "Error in Inserting");
+            }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        NotAvailableTimesForGroups time = new NotAvailableTimesForGroups();
+        time.setId(0);
+        time.setGroup(jComboBox7.getSelectedItem().toString());
+        time.setOn(jComboBox8.getSelectedItem().toString());
+        time.setAt(jComboBox9.getSelectedItem().toString());
+        
+        boolean result = db.addNotAvailableTimesForLGroups(time);
+
+        if(result){
+                JOptionPane.showMessageDialog(this, "Successfully Saved");
+                 clearFields();          }
+        else{
+                JOptionPane.showMessageDialog(this, "Error in Inserting");
+            }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        NotAvailableTimesForSubGroups time = new NotAvailableTimesForSubGroups();
+        time.setId(0);
+        time.setSubGroup(jComboBox10.getSelectedItem().toString());
+        time.setOn(jComboBox11.getSelectedItem().toString());
+        time.setAt(jComboBox12.getSelectedItem().toString());
+        
+        boolean result = db.addNotAvailableTimesForSubGroups(time);
+
+        if(result){
+                JOptionPane.showMessageDialog(this, "Successfully Saved");
+                 clearFields();          }
+        else{
+                JOptionPane.showMessageDialog(this, "Error in Inserting");
+            }
+
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -566,8 +637,17 @@ public class NotAvailableTimes extends javax.swing.JFrame {
             }
         });
     }
+    
+    void clearFields(){
+        jComboBox1.setSelectedItem("");
+        ComboBoxOn1.setSelectedItem("");
+        ComboBoxAt1.setSelectedItem("");
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBoxAt1;
+    private javax.swing.JComboBox<String> ComboBoxOn1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -576,8 +656,6 @@ public class NotAvailableTimes extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;
     private javax.swing.JComboBox<String> jComboBox12;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;

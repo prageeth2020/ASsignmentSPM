@@ -433,6 +433,124 @@ public class DBOperation {
             return null;
         }
     }
+  
+  //Not available times for lecturers
+  boolean addNotAvailableTimesForLecturers(NotAvailableTimesForLecturers s) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "Insert into not_available_times_for_lecturers values (?,?,?,?)";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            pst.setInt(1, s.getId());
+            pst.setString(2, s.getName());
+            pst.setString(3, s.getOn());
+            pst.setString(4, s.getAt());
+          
+            pst.executeUpdate();
+
+            return true;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+        }
+    }
+  
+  //Not available times for groups
+  boolean addNotAvailableTimesForLGroups(NotAvailableTimesForGroups s) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "Insert into not_available_times_for_groups values (?,?,?,?)";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            pst.setInt(1, s.getId());
+            pst.setString(2, s.getGroup());
+            pst.setString(3, s.getOn());
+            pst.setString(4, s.getAt());
+          
+            pst.executeUpdate();
+
+            return true;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+        }
+    }
+
+  
+  //Not available times for groups
+  boolean addNotAvailableTimesForSubGroups(NotAvailableTimesForSubGroups s) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "Insert into not_available_times_fo_sub_groups values (?,?,?,?)";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            pst.setInt(1, s.getId());
+            pst.setString(2, s.getSubGroup());
+            pst.setString(3, s.getOn());
+            pst.setString(4, s.getAt());
+          
+            pst.executeUpdate();
+
+            return true;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+        }
+    }
 
    
 }
