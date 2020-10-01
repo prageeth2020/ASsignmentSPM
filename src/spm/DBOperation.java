@@ -49,10 +49,13 @@ public class DBOperation {
     public String maxSesionID() {
         String ID = null;
         try {
-            String sql1 = "select MAX(ID) from lecturers  ";
+            ResultSet rs = null ;
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            
+            String sql1 = "select MAX(id) from sessions";
             PreparedStatement statement1 = con.prepareStatement(sql1);
             
-            ResultSet rs = statement1.executeQuery();
+            rs = statement1.executeQuery();
             
             
             while(rs.next())

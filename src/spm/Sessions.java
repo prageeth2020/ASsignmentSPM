@@ -28,6 +28,8 @@ public class Sessions extends javax.swing.JFrame {
            
             ResultSet rs1 = null;
             DBOperation dbo = new DBOperation();
+            
+            jLabel8.setText("Session " + dbo.maxSesionID());
             rs1 = dbo.getLecturers();
             while(rs1.next()){
                 jComboBox1.addItem(rs1.getString("Name"));
