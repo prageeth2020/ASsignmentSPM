@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  *
@@ -28,7 +31,8 @@ public class DBOperation {
     PreparedStatement pst = null;
     ResultSet rs = null;
     Statement st;
-    
+    private ResultSet dataSet = null;
+
     public static Connection connect(){
         
         Connection con=null;
@@ -779,6 +783,527 @@ public class DBOperation {
             }
         }
     }
+
+  
+  
+    boolean assignRoomTag(AllocationsModel b) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "Insert into allocation values (?,?,?,?,?)";
+            pst = (PreparedStatement) con.prepareStatement(query);
+         
+    
+
+            pst.setInt(1, b.getRoomTid());
+            pst.setString(2, b.getName());
+            pst.setString(3, b.getTag());
+            pst.setInt(4, b.getaRid());
+            pst.setInt(5, b.getaTid());
+           
+
+            pst.executeUpdate();
+
+            return true;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+        }
+    }
+    
+    
+    ArrayList<Tag> getTagfRoom(String strQUERY) {
+        try {
+            ArrayList<Tag> list = new ArrayList<Tag>();
+
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = strQUERY;//"SELECT * FROM tag";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            rs = pst.executeQuery();
+          
+            while (rs.next()) {
+                Tag tag = new Tag();
+                tag.setTid(rs.getInt(1));
+                tag.setTag(rs.getString(2));
+               
+              
+               
+                list.add(tag);
+                
+                
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+    
+    
+     ResultSet getMySqlDataset(String strQUERY) {
+        try {
+          //  ArrayList<Tag> list = new ArrayList<Tag>();
+
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = strQUERY;//"SELECT * FROM tag";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            setDataSet(pst.executeQuery());
+          
+         /*   while (rs.next()) {
+                Tag tag = new Tag();
+                tag.setTid(rs.getInt(1));
+                tag.setTag(rs.getString(2));
+               
+              
+               
+                list.add(tag);
+            }*/
+            return rs;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+     
+     
+     
+     boolean assignRoomSub(AllocationsModel b) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "Insert into allocationsub values (?,?,?,?,?,?,?)";
+            pst = (PreparedStatement) con.prepareStatement(query);
+         
+    
+
+            pst.setInt(1, b.getRoomSubID());
+             pst.setString(2, b.getName());
+            pst.setString(3, b.getSubName());
+            pst.setString(4, b.getTag());
+            pst.setInt(5, b.getaRid());
+            pst.setInt(6, b.getaTid());
+             pst.setInt(7, b.getSubID());
+           
+
+            pst.executeUpdate();
+
+            return true;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+        }
+    }
+     
+     
+      ArrayList<AddSubRoomModel> getSubDataRoom() {
+        try {
+            ArrayList<AddSubRoomModel> list = new ArrayList<AddSubRoomModel>();
+
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM `subjects`";
+             pst = (PreparedStatement) con.prepareStatement(query);
+             
+             rs = pst.executeQuery();
+             
+            // DefaultTableModel tb = (DefaultTableModel) jTable1.getModel();
+             
+             while(rs.next())
+            {
+                AddSubRoomModel allocationModel=new AddSubRoomModel();
+              int subID=rs.getInt(1);
+                String Subjectname = rs.getString(4);
+               
+                allocationModel.setSubID(subID);
+                allocationModel.setSubName(Subjectname);
+             //   String Row[] = {Offeredyear , Offeredsemester , Subjectname , Subjectcode , lecturehours , tutorialhours , labhours , evaluationhours};
+                System.out.println(allocationModel.toString());
+               // tb.addRow(Row);
+                list.add(allocationModel);
+              
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+      
+      boolean assignRoomLec(AllocationsModel b) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "Insert into allocationLec values (?,?,?,?,?)";
+            pst = (PreparedStatement) con.prepareStatement(query);
+         
+    
+
+            pst.setInt(1, b.getRoomEidID());
+            pst.setString(2, b.getName());
+            pst.setString(3, b.getEmpName());
+            pst.setInt(4, b.getaRid());
+            pst.setInt(5, b.getEid());
+           
+           
+
+            pst.executeUpdate();
+
+            return true;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+        }
+    }
+      
+      
+      ArrayList<AllocationsModel> getLecDataRoom() {
+        try {
+            ArrayList<AllocationsModel> list = new ArrayList<AllocationsModel>();
+
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM `lecturers`";
+             pst = (PreparedStatement) con.prepareStatement(query);
+             
+             rs = pst.executeQuery();
+             
+            // DefaultTableModel tb = (DefaultTableModel) jTable1.getModel();
+             
+             while(rs.next())
+            {
+                AllocationsModel allocationModel=new AllocationsModel();
+              int eid=rs.getInt(1);
+                String lecName = rs.getString(3);
+               
+                allocationModel.setEid(eid);
+                allocationModel.setEmpName(lecName);
+             //   String Row[] = {Offeredyear , Offeredsemester , Subjectname , Subjectcode , lecturehours , tutorialhours , labhours , evaluationhours};
+                System.out.println(allocationModel.toString());
+               // tb.addRow(Row);
+                list.add(allocationModel);
+              
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+      
+      
+       boolean assignRoomSubGrNo(AllocationsModel b) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "Insert into allocationsubGroup values (?,?,?,?,?)";
+            pst = (PreparedStatement) con.prepareStatement(query);
+         
+    
+
+            pst.setInt(1, b.getRoomSubGroupId());
+             pst.setString(2, b.getName());
+            pst.setString(3, b.getSubGroupNo());
+            pst.setInt(4, b.getaRid());
+            pst.setInt(5, b.getaSid());
+           
+           
+
+            pst.executeUpdate();
+
+            return true;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+        }
+    }
+       
+       
+       ArrayList<AllocationsModel> getGroupDataRoom() {
+        try {
+            ArrayList<AllocationsModel> list = new ArrayList<AllocationsModel>();
+
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM `student`";
+             pst = (PreparedStatement) con.prepareStatement(query);
+             
+             rs = pst.executeQuery();
+             
+            // DefaultTableModel tb = (DefaultTableModel) jTable1.getModel();
+             
+             while(rs.next())
+            {
+                AllocationsModel allocationModel=new AllocationsModel();
+              int groupid=rs.getInt(1);
+                String groupNo = rs.getString(7);
+               
+                allocationModel.setaSid(groupid);
+                allocationModel.setSubGroupNo(groupNo);
+             //   String Row[] = {Offeredyear , Offeredsemester , Subjectname , Subjectcode , lecturehours , tutorialhours , labhours , evaluationhours};
+                System.out.println(allocationModel.toString());
+               // tb.addRow(Row);
+                list.add(allocationModel);
+              
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+       private static ArrayList detailList = new ArrayList<>();
+       public static ArrayList getDetails() {
+           return detailList;
+       }
+       public static void setDetails(ArrayList aDetailsList) {
+           detailList = aDetailsList;
+       }
+       
+       ArrayList<AllocationsModel> getSessionDataRoom() {
+        try {
+            ArrayList<AllocationsModel> list = new ArrayList<AllocationsModel>();
+
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM `session`";
+             pst = (PreparedStatement) con.prepareStatement(query);
+             
+             rs = pst.executeQuery();
+             
+            // DefaultTableModel tb = (DefaultTableModel) jTable1.getModel();
+             Map<Integer, String> dmap = null;
+             
+             while(rs.next())
+            {
+                AllocationsModel allocationModel=new AllocationsModel();
+                int sid=rs.getInt(1);
+                String ename = rs.getString(2);
+                String subname=rs.getString(3);
+                String subcode=rs.getString(4);
+                String tag=rs.getString(5);
+                String sGrNo=rs.getString(5);
+               
+                allocationModel.setSessionRID(sid);
+                allocationModel.setEmpName(ename);
+                allocationModel.setSubName(subname);
+                allocationModel.setSubCode(subcode);
+                allocationModel.setTag(tag);
+                allocationModel.setSubGroupNo(sGrNo);
+             //   String Row[] = {Offeredyear , Offeredsemester , Subjectname , Subjectcode , lecturehours , tutorialhours , labhours , evaluationhours};
+               // System.out.println(allocationModel.toString());
+               // tb.addRow(Row);
+                String details = null;
+                dmap = new HashMap();
+                details = ename + " " +  subname + " " + subcode + " " + tag + " " + sGrNo;
+               // setDetails(details);
+               
+                list.add(allocationModel);
+              //   System.out.println("sid "+ sid);
+                //System.out.println("details "+ details);
+                dmap.put(sid, details);
+                detailList.add(dmap);
+             // System.out.println(dmap);
+            }
+             
+             
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+       
+       
+       
+        boolean assignRoomSession(AllocationsModel b) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "Insert into allocationsession values (?,?,?,?,?,?,?,?,?)";
+            pst = (PreparedStatement) con.prepareStatement(query);
+         
+    
+
+            pst.setInt(1, b.getSessionRID());
+             pst.setString(2, b.getName());
+            pst.setString(3, b.getSessionDetails());
+            pst.setString(4, b.getConsessName1());
+            pst.setString(5, b.getConsessName2());
+            pst.setString(6, b.getConsessName3());
+            pst.setInt(7, b.getaRid());
+            pst.setInt(8, b.getAsessionID());
+             pst.setString(9, b.getAtime());
+           
+           
+
+            pst.executeUpdate();
+
+            return true;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+        }
+    }
+        
+        
+         ArrayList<AllocationsModel> getConSessionfRoom(String strQUERY) {
+        try {
+            ArrayList<AllocationsModel> list = new ArrayList<AllocationsModel>();
+
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = strQUERY;//"SELECT * FROM tag";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            rs = pst.executeQuery();
+          
+            while (rs.next()) {
+                AllocationsModel amodel = new AllocationsModel();
+               // amodel.setTid(rs.getInt(1));
+                amodel.setConsessName1(rs.getString(2));
+                 amodel.setConsessName2(rs.getString(3));
+                  amodel.setConsessName3(rs.getString(4));
+               
+              
+               
+                list.add(amodel);
+                
+                
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+      
+     ArrayList<AllocationsModel> getTimeSlotRoom(String strQUERY) {
+        try {
+            ArrayList<AllocationsModel> list = new ArrayList<AllocationsModel>();
+
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = strQUERY;//"SELECT * FROM tag";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            rs = pst.executeQuery();
+          
+            while (rs.next()) {
+                AllocationsModel amodel = new AllocationsModel();
+               // amodel.setTid(rs.getInt(1));
+                amodel.setAtime(rs.getString(1));
+                
+               
+              
+               
+                list.add(amodel);
+                
+                
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+      
+
+    /**
+     * @return the dataSet
+     */
+    public ResultSet getDataSet() {
+        return dataSet;
+    }
+
+    /**
+     * @param dataSet the dataSet to set
+     */
+    public void setDataSet(ResultSet dataSet) {
+        this.dataSet = dataSet;
+    }
+    
+    
 
 
    
