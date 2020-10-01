@@ -448,7 +448,6 @@ public class AddRoom extends javax.swing.JFrame {
                             .addComponent(jScrollPane1))
                         .addGap(108, 108, 108))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
