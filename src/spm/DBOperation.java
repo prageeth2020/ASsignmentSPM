@@ -46,6 +46,32 @@ public class DBOperation {
         
     }
     
+    public String maxSesionID() {
+        String ID = null;
+        try {
+            String sql1 = "select MAX(ID) from lecturers  ";
+            PreparedStatement statement1 = con.prepareStatement(sql1);
+            
+            ResultSet rs = statement1.executeQuery();
+            
+            
+            while(rs.next())
+            {
+                ID = String.valueOf(rs.getInt(1));
+                
+            }
+            int ID2 = Integer.valueOf(ID);
+            ID2 = ID2 + 1;
+            
+            ID = String.valueOf(ID2);
+            
+            return ID;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBOperation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ID;
+    }
+       
     public ResultSet getLecturers() {
         try {
             ResultSet rs = null ;
