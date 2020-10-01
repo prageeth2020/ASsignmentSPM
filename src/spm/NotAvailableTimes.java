@@ -66,6 +66,8 @@ public class NotAvailableTimes extends javax.swing.JFrame {
                 ComboBoxAt1.addItem((rs.getString("startTime")));
                 jComboBox9.addItem((rs.getString("startTime")));
                 jComboBox12.addItem((rs.getString("startTime")));
+                jComboBox6.addItem((rs.getString("startTime")));
+
             }
 
         } catch (Exception e) {
@@ -159,6 +161,8 @@ public class NotAvailableTimes extends javax.swing.JFrame {
 
         jLabel1.setText("Lecturer's Name");
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel2.setText("On");
@@ -237,6 +241,8 @@ public class NotAvailableTimes extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel4.setText("Session");
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 

@@ -43,7 +43,7 @@ public class DBOperation {
         
     }
     
-    //Add Subject Details
+    //Add Student Details
     boolean addSubject(Subject s) {
         try {
             con = (Connection) DriverManager.getConnection(url, username, password);
@@ -86,7 +86,7 @@ public class DBOperation {
         }
     }
     
-    //Get all Subject Details
+    //Get all Student Details
     ArrayList<Subject> getSubjects() {
         try {
             ArrayList<Subject> list = new ArrayList<Subject>();
@@ -170,7 +170,7 @@ public class DBOperation {
         }
     }
     
-    //Get all Subject Details
+    //Get all Tag Details
     ArrayList<Tag> getTags() {
         try {
             ArrayList<Tag> list = new ArrayList<Tag>();
@@ -551,6 +551,87 @@ public class DBOperation {
             }
         }
     }
+  
+  //Consecutive Sessions
+  boolean addConsecutiveSessions(ConsecutiveSessionsAdd s) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "Insert into consecutive_sessions values (?,?,?,?)";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            pst.setInt(1, s.getId());
+            pst.setString(2, s.getSession1());
+            pst.setString(3, s.getSession2());
+            pst.setString(4, s.getSession3());
+          
+            pst.executeUpdate();
+
+            return true;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+        }
+    }
+  
+  //Overlapping Sessions
+  boolean addOverlappingSessions(OverlappingSessionsAdd s) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "Insert into overlapping_sessions values (?,?,?,?,?,?)";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            pst.setInt(1, s.getId());
+            pst.setString(2, s.getSession1());
+            pst.setString(3, s.getSession2());
+            pst.setString(4, s.getSession3());
+            pst.setString(5, s.getSession4());
+            pst.setString(6, s.getSession5());
+          
+            pst.executeUpdate();
+
+            return true;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+        }
+    }
+
 
    
 }

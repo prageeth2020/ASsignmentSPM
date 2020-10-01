@@ -41,6 +41,8 @@ public class MainDashboard extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         btnBuilding = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        ConsecutiveSessions = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -229,7 +231,21 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addGap(20, 20, 20))
         );
 
-        jButton6.setText("Not Available Times");
+        ConsecutiveSessions.setText("Consecutive Sessions");
+        ConsecutiveSessions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsecutiveSessionsActionPerformed(evt);
+            }
+        });
+
+        jButton7.setText("Not Available Times");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("Overlapping Sessions");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -249,8 +265,15 @@ public class MainDashboard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(jButton6))))
+                        .addGap(88, 88, 88)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ConsecutiveSessions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(290, 290, 290)
+                    .addComponent(jButton7)
+                    .addContainerGap(1378, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,9 +284,15 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jButton6)
-                        .addContainerGap())))
+                        .addGap(106, 106, 106)
+                        .addComponent(ConsecutiveSessions)
+                        .addGap(35, 35, 35)
+                        .addComponent(jButton6))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(139, 139, 139)
+                    .addComponent(jButton7)
+                    .addContainerGap(774, Short.MAX_VALUE)))
         );
 
         pack();
@@ -339,10 +368,24 @@ public class MainDashboard extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void ConsecutiveSessionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsecutiveSessionsActionPerformed
+        // TODO add your handling code here:
+        ConsecutiveSessions cs = new ConsecutiveSessions();
+        cs.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ConsecutiveSessionsActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         NotAvailableTimes na = new NotAvailableTimes();
         na.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        OverlappingSessions oa = new OverlappingSessions();
+        oa.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -382,6 +425,7 @@ public class MainDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ConsecutiveSessions;
     private javax.swing.JButton btnAddTimeSlot;
     private javax.swing.JButton btnBuilding;
     private javax.swing.JButton btnGroup;
@@ -393,6 +437,7 @@ public class MainDashboard extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
