@@ -8,9 +8,12 @@ package spm;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -41,6 +44,81 @@ public class DBOperation {
         
         return con;
         
+    }
+    
+    public ResultSet getLecturers() {
+        try {
+            ResultSet rs = null ;
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM lecturers";
+            pst = (PreparedStatement) con.prepareStatement(query);
+            
+            rs = pst.executeQuery();
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBOperation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
+    public ResultSet getTagsForSession() {
+        try {
+            ResultSet rs = null ;
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM tag";
+            pst = (PreparedStatement) con.prepareStatement(query);
+            
+            rs = pst.executeQuery();
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBOperation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
+    
+    public ResultSet getSebjects() {
+        try {
+            ResultSet rs = null ;
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM subjects";
+            pst = (PreparedStatement) con.prepareStatement(query);
+            
+            rs = pst.executeQuery();
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBOperation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
+    
+    public ResultSet getSubCode(String s) {
+        try {
+            ResultSet rs = null ;
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM subjects where Subjectname = ?";
+            pst = (PreparedStatement) con.prepareStatement(query);
+            pst.setString(1, s);
+            
+            rs = pst.executeQuery();
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBOperation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
+    
+    public ResultSet getStudents() {
+        try {
+            ResultSet rs = null ;
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM student";
+            pst = (PreparedStatement) con.prepareStatement(query);
+            
+            rs = pst.executeQuery();
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBOperation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
     }
     
     //Add Student Details

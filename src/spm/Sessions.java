@@ -5,17 +5,54 @@
  */
 package spm;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author ACER
  */
 public class Sessions extends javax.swing.JFrame {
 
+    String lecturers = "" ;
     /**
      * Creates new form Sessions
      */
     public Sessions() {
         initComponents();
+        
+        
+        try {
+            initComponents();
+            ResultSet rs1 = null;
+            DBOperation dbo = new DBOperation();
+            rs1 = dbo.getLecturers();
+            while(rs1.next()){
+                jComboBox1.addItem(rs1.getString("Name"));
+            }
+            
+            rs1 = dbo.getTagsForSession();
+            while(rs1.next()){
+                jComboBox2.addItem(rs1.getString("tag"));
+            }
+            
+            rs1 = dbo.getStudents();
+            while(rs1.next()){
+                jComboBox3.addItem(rs1.getString("groupID"));
+            }
+            
+            rs1 = dbo.getSebjects();
+            while(rs1.next()){
+                jComboBox4.addItem(rs1.getString("Subjectname"));
+            }
+            
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Sessions.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -56,6 +93,7 @@ public class Sessions extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -243,9 +281,19 @@ public class Sessions extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
 
         jButton7.setText("ADD");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Tag");
@@ -261,6 +309,11 @@ public class Sessions extends javax.swing.JFrame {
 
         jComboBox4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox4ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Duration");
@@ -278,6 +331,13 @@ public class Sessions extends javax.swing.JFrame {
         jButton9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton9.setText("Preview Session");
         jButton9.setActionCommand("");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -314,7 +374,9 @@ public class Sessions extends javax.swing.JFrame {
                             .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
                             .addComponent(jTextField2))))
                 .addGap(18, 32, Short.MAX_VALUE)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(27, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(82, 82, 82)
@@ -342,7 +404,8 @@ public class Sessions extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -483,6 +546,54 @@ public class Sessions extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+         jTextArea1.setText(jTextArea1.getText() +   "\n" + "Lecturers - " + lecturers + "\n" + "Subject and Subject Code - " +  jComboBox4.getSelectedItem() + "(" + jLabel7.getText() + ")"
+         + "\n" + "Tag - " + jComboBox2.getSelectedItem() + "\n" + "Group or Sub Group - " +  jComboBox3.getSelectedItem() + "\n" + "Number of Students - " +  jTextField2.getText() + "\n" + "Duration - " +  jTextField1.getText());
+        
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+         if(jComboBox1.getSelectedIndex() > 0){
+           lecturers = lecturers + jComboBox1.getSelectedItem() + " , ";
+           jTextArea1.setText(jTextArea1.getText() + "Lecturer " + jComboBox1.getSelectedItem() + " addedd" + "\n" + "TimeTable  >");
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        if(jComboBox2.getSelectedItem().equals("Practical")) {
+           try {
+               jLabel3.setText("Sub Group");
+               jComboBox3.removeAllItems();
+               ResultSet rs3 = null;
+               DBOperation dbo = new DBOperation();
+               rs3 = dbo.getStudents();
+               jComboBox3.addItem(" ");
+               while(rs3.next()){
+                   jComboBox3.addItem(rs3.getString("subGroupID"));
+               }
+           } catch (SQLException ex) {
+               Logger.getLogger(Sessions.class.getName()).log(Level.SEVERE, null, ex);
+           }
+       }
+       else {
+           jLabel3.setText("Group");
+       }
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+         try {
+            ResultSet rs2 = null;
+            DBOperation dbo = new DBOperation();
+            rs2 = dbo.getSubCode((String) jComboBox4.getSelectedItem());
+            
+            while(rs2.next()){
+                jLabel7.setText(rs2.getString("Subjectcode"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Sessions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jComboBox4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -513,6 +624,7 @@ public class Sessions extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
