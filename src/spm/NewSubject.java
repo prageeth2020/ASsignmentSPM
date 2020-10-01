@@ -148,7 +148,7 @@ public class NewSubject extends javax.swing.JFrame {
         lblID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel7.setText("Subject ID");
+        jLabel7.setText("Student ID");
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/spm/tik1.jpg"))); // NOI18N
 
