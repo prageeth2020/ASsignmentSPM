@@ -631,6 +631,47 @@ public class DBOperation {
             }
         }
     }
+  
+  //Parallel Sessions
+  boolean addParallelSessions(ParallelSessionsAdd s) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "Insert into parallel_session values (?,?,?,?,?,?)";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            pst.setInt(1, s.getId());
+            pst.setString(2, s.getSession1());
+            pst.setString(3, s.getSession2());
+            pst.setString(4, s.getSession3());
+            pst.setString(5, s.getSession4());
+            pst.setString(6, s.getSession5());
+          
+            pst.executeUpdate();
+
+            return true;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+        }
+    }
 
 
    
