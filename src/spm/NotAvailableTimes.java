@@ -120,40 +120,40 @@ public class NotAvailableTimes extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        ComboBoxOn1 = new javax.swing.JComboBox<>();
-        ComboBoxAt1 = new javax.swing.JComboBox<>();
+        ComboBoxOn1 = new javax.swing.JComboBox<String>();
+        ComboBoxAt1 = new javax.swing.JComboBox<String>();
         jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<String>();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        jComboBox5 = new javax.swing.JComboBox<String>();
+        jComboBox6 = new javax.swing.JComboBox<String>();
         jButton2 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox7 = new javax.swing.JComboBox<>();
+        jComboBox7 = new javax.swing.JComboBox<String>();
         jPanel6 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox<>();
-        jComboBox9 = new javax.swing.JComboBox<>();
+        jComboBox8 = new javax.swing.JComboBox<String>();
+        jComboBox9 = new javax.swing.JComboBox<String>();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox10 = new javax.swing.JComboBox<>();
+        jComboBox10 = new javax.swing.JComboBox<String>();
         jPanel8 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jComboBox11 = new javax.swing.JComboBox<>();
-        jComboBox12 = new javax.swing.JComboBox<>();
+        jComboBox11 = new javax.swing.JComboBox<String>();
+        jComboBox12 = new javax.swing.JComboBox<String>();
         jPanel9 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
@@ -177,7 +177,7 @@ public class NotAvailableTimes extends javax.swing.JFrame {
         jLabel1.setText("Lecturer's Name");
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -188,7 +188,7 @@ public class NotAvailableTimes extends javax.swing.JFrame {
         jLabel3.setText("At");
 
         ComboBoxOn1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ComboBoxOn1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
+        ComboBoxOn1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
         ComboBoxOn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboBoxOn1ActionPerformed(evt);
@@ -196,7 +196,7 @@ public class NotAvailableTimes extends javax.swing.JFrame {
         });
 
         ComboBoxAt1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        ComboBoxAt1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        ComboBoxAt1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -268,7 +268,7 @@ public class NotAvailableTimes extends javax.swing.JFrame {
         jLabel4.setText("Session");
 
         jComboBox4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -279,7 +279,7 @@ public class NotAvailableTimes extends javax.swing.JFrame {
         jLabel6.setText("At");
 
         jComboBox5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monday ", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Monday ", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
         jComboBox5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox5ActionPerformed(evt);
@@ -287,7 +287,7 @@ public class NotAvailableTimes extends javax.swing.JFrame {
         });
 
         jComboBox6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -369,7 +369,7 @@ public class NotAvailableTimes extends javax.swing.JFrame {
         jLabel9.setText("At");
 
         jComboBox8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monday ", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Monday ", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
         jComboBox8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox8ActionPerformed(evt);
@@ -377,7 +377,7 @@ public class NotAvailableTimes extends javax.swing.JFrame {
         });
 
         jComboBox9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -467,7 +467,7 @@ public class NotAvailableTimes extends javax.swing.JFrame {
         jLabel12.setText("At");
 
         jComboBox11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monday ", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
+        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Monday ", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
         jComboBox11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox11ActionPerformed(evt);
@@ -475,7 +475,7 @@ public class NotAvailableTimes extends javax.swing.JFrame {
         });
 
         jComboBox12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
