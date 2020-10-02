@@ -1293,7 +1293,7 @@ public class DBOperation {
             ArrayList<AllocationsModel> list = new ArrayList<AllocationsModel>();
 
             con = (Connection) DriverManager.getConnection(url, username, password);
-            String query = "SELECT * FROM `session`";
+            String query = "SELECT * FROM `sessions`";
              pst = (PreparedStatement) con.prepareStatement(query);
              
              rs = pst.executeQuery();
