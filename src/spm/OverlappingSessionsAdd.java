@@ -12,10 +12,7 @@ package spm;
 public class OverlappingSessionsAdd {
     private int id;
     private String session1;
-    private String session2;
-    private String session3;
-    private String session4;
-    private String session5;
+    private String AllNames;
 
     /**
      * @return the id
@@ -46,58 +43,18 @@ public class OverlappingSessionsAdd {
     }
 
     /**
-     * @return the session2
+     * @return the AllNames
      */
-    public String getSession2() {
-        return session2;
+    public String getAllNames() {
+        return AllNames;
     }
 
     /**
-     * @param session2 the session2 to set
+     * @param AllNames the AllNames to set
      */
-    public void setSession2(String session2) {
-        this.session2 = session2;
+    public void setAllNames(String AllNames) {
+        this.AllNames = AllNames;
     }
-
-    /**
-     * @return the session3
-     */
-    public String getSession3() {
-        return session3;
-    }
-
-    /**
-     * @param session3 the session3 to set
-     */
-    public void setSession3(String session3) {
-        this.session3 = session3;
-    }
-
-    /**
-     * @return the session4
-     */
-    public String getSession4() {
-        return session4;
-    }
-
-    /**
-     * @param session4 the session4 to set
-     */
-    public void setSession4(String session4) {
-        this.session4 = session4;
-    }
-
-    /**
-     * @return the session5
-     */
-    public String getSession5() {
-        return session5;
-    }
-
-    /**
-     * @param session5 the session5 to set
-     */
-    public void setSession5(String session5) {
-        this.session5 = session5;
-    }
+    
+    
 }

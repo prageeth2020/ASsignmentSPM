@@ -50,6 +50,65 @@ public class DBOperation {
         
     }
     
+    public int maxOverlappingID() {
+        String ID = null;
+        try {
+            ResultSet rs = null ;
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            
+            String sql1 = "select MAX(id) from overlapping_sessions";
+            PreparedStatement statement1 = con.prepareStatement(sql1);
+            
+            rs = statement1.executeQuery();
+            
+            
+            while(rs.next())
+            {
+                ID = String.valueOf(rs.getInt(1));
+                
+            }
+            int ID2 = Integer.valueOf(ID);
+            ID2 = ID2 + 1;
+            
+            //ID = String.valueOf(ID2);
+            
+            return ID2;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBOperation.class.getName()).log(Level.SEVERE, null, ex);
+            return 1;
+        }
+        
+    }
+    public int maxPareralSesionID() {
+        String ID = null;
+        try {
+            ResultSet rs = null ;
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            
+            String sql1 = "select MAX(id) from parallel_sessions";
+            PreparedStatement statement1 = con.prepareStatement(sql1);
+            
+            rs = statement1.executeQuery();
+            
+            
+            while(rs.next())
+            {
+                ID = String.valueOf(rs.getInt(1));
+                
+            }
+            int ID2 = Integer.valueOf(ID);
+            ID2 = ID2 + 1;
+            
+            //ID = String.valueOf(ID2);
+            
+            return ID2;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBOperation.class.getName()).log(Level.SEVERE, null, ex);
+            return 1;
+        }
+        
+    }
+    
     public int maxSesionID() {
         String ID = null;
         try {
@@ -85,6 +144,21 @@ public class DBOperation {
             ResultSet rs = null ;
             con = (Connection) DriverManager.getConnection(url, username, password);
             String query = "SELECT * FROM lecturers";
+            pst = (PreparedStatement) con.prepareStatement(query);
+            
+            rs = pst.executeQuery();
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBOperation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
+    
+    public ResultSet getOverlappingSessions() {
+        try {
+            ResultSet rs = null ;
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM overlapping_sessions";
             pst = (PreparedStatement) con.prepareStatement(query);
             
             rs = pst.executeQuery();
@@ -197,6 +271,27 @@ public class DBOperation {
         }
     }
     
+      boolean addPareralSession(ParallelSessionsAdd p) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "Insert into parallel_sessions values (?,?)";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            pst.setInt(1, p.getId());
+            pst.setString(2, p.getSessionNames());
+           
+            
+            pst.executeUpdate();
+
+            return true;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
+    }
+    
+      
     
     //Add Student Details
     boolean addSubject(Subject s) {
@@ -791,15 +886,12 @@ public class DBOperation {
   boolean addOverlappingSessions(OverlappingSessionsAdd s) {
         try {
             con = (Connection) DriverManager.getConnection(url, username, password);
-            String query = "Insert into overlapping_sessions values (?,?,?,?,?,?)";
+            String query = "Insert into overlapping_sessions values (?,?)";
             pst = (PreparedStatement) con.prepareStatement(query);
 
             pst.setInt(1, s.getId());
-            pst.setString(2, s.getSession1());
-            pst.setString(3, s.getSession2());
-            pst.setString(4, s.getSession3());
-            pst.setString(5, s.getSession4());
-            pst.setString(6, s.getSession5());
+            pst.setString(2, s.getAllNames());
+         
           
             pst.executeUpdate();
 
@@ -808,66 +900,9 @@ public class DBOperation {
         } catch (Exception e) {
             System.out.println(e);
             return false;
-        } finally {
-            if (pst != null) {
-                try {
-                    pst.close();
-                } catch (Exception e) {
-                    System.out.println(e);
-                    return false;
-                }
-            }
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception e) {
-                    System.out.println(e);
-                    return false;
-                }
-            }
-        }
+        } 
     }
   
-  //Parallel Sessions
-  boolean addParallelSessions(ParallelSessionsAdd s) {
-        try {
-            con = (Connection) DriverManager.getConnection(url, username, password);
-            String query = "Insert into parallel_session values (?,?,?,?,?,?)";
-            pst = (PreparedStatement) con.prepareStatement(query);
-
-            pst.setInt(1, s.getId());
-            pst.setString(2, s.getSession1());
-            pst.setString(3, s.getSession2());
-            pst.setString(4, s.getSession3());
-            pst.setString(5, s.getSession4());
-            pst.setString(6, s.getSession5());
-          
-            pst.executeUpdate();
-
-            return true;
-
-        } catch (Exception e) {
-            System.out.println(e);
-            return false;
-        } finally {
-            if (pst != null) {
-                try {
-                    pst.close();
-                } catch (Exception e) {
-                    System.out.println(e);
-                    return false;
-                }
-            }
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception e) {
-                    System.out.println(e);
-                    return false;
-                }
-            }
-        }
-    }
 
   
   
