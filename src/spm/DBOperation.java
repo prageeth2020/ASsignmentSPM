@@ -168,6 +168,20 @@ public class DBOperation {
         }
         return rs;
     }
+     public ResultSet getPararelSessions() {
+        try {
+            ResultSet rs = null ;
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM parallel_sessions";
+            pst = (PreparedStatement) con.prepareStatement(query);
+            
+            rs = pst.executeQuery();
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBOperation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
     public ResultSet getTagsForSession() {
         try {
             ResultSet rs = null ;

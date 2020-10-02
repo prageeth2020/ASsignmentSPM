@@ -43,9 +43,9 @@ public class OverlappingSessions extends javax.swing.JFrame {
              while(rs.next()) {
                  jComboBox1.addItem(rs.getString("SessionName"));
                  
-             }} catch (SQLException ex) {
-             Logger.getLogger(OverlappingSessions.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        }} catch (SQLException ex) {
+            Logger.getLogger(OverlappingSessions.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -296,7 +296,7 @@ public class OverlappingSessions extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Selected Sessions");
 
-        jButton7.setText("jButton7");
+        jButton7.setText("Save Details");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
