@@ -9,7 +9,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,8 +33,17 @@ public class OverlappingSessions extends javax.swing.JFrame {
      * Creates new form OverlappingSessions
      */
     public OverlappingSessions() {
-        initComponents();
-        loadSessions();
+         try {
+             initComponents();
+             DBOperation db = new DBOperation();
+             rs = db.getSessions();
+             
+             while(rs.next()) {
+                 jComboBox1.addItem(rs.getString("SessionName"));
+                 
+             }} catch (SQLException ex) {
+             Logger.getLogger(OverlappingSessions.class.getName()).log(Level.SEVERE, null, ex);
+         }
     }
 
     /**
