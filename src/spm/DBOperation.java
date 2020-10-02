@@ -169,6 +169,50 @@ public class DBOperation {
         return rs;
     }
      
+      //Add Session
+    boolean addSession(SessionClass S) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "Insert into student values (?,?,?,?,?,?,?,?)";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+          /*  pst.setInt(1, s.getSid());
+            pst.setString(2, s.getAcademicYear());
+            pst.setString(3, s.getSemester());
+            pst.setString(4, s.getProgram());
+            pst.setString(5, s.getGroupNo());
+            pst.setString(6, s.getSubGroupNo());
+            pst.setString(7, s.getAcademicYear()+ "." + s.getSemester() + "." + s.getProgram() + "." + s.getGroupNo());
+            pst.setString(8, s.getAcademicYear()+ "." + s.getSemester() + "." + s.getProgram() + "." + s.getGroupNo() + "." + s.getSubGroupNo());*/
+
+            pst.executeUpdate();
+
+            return true;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+        }
+    }
+    
+    
     //Add Student Details
     boolean addSubject(Subject s) {
         try {

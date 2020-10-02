@@ -81,14 +81,14 @@ public class Sessions extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jButton7 = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<String>();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<String>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<String>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -281,7 +281,7 @@ public class Sessions extends javax.swing.JFrame {
         jLabel1.setText("Lecturer's Name");
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
 
         jButton7.setText("ADD");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -291,7 +291,7 @@ public class Sessions extends javax.swing.JFrame {
         });
 
         jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -302,7 +302,7 @@ public class Sessions extends javax.swing.JFrame {
         jLabel2.setText("Tag");
 
         jComboBox3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Group");
@@ -311,7 +311,7 @@ public class Sessions extends javax.swing.JFrame {
         jLabel4.setText("Subject");
 
         jComboBox4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
         jComboBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox4ActionPerformed(evt);
@@ -329,6 +329,11 @@ public class Sessions extends javax.swing.JFrame {
         jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setText("Create Session");
         jButton8.setActionCommand("");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setBackground(new java.awt.Color(255, 255, 0));
         jButton9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -599,6 +604,10 @@ public class Sessions extends javax.swing.JFrame {
             Logger.getLogger(Sessions.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jComboBox4ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
