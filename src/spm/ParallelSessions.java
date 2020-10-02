@@ -54,7 +54,7 @@ public class ParallelSessions extends javax.swing.JFrame {
             while(rs.next()){
                 String[] arr = rs.getString("sessionName").split(",");
                 //System.out.println(arr[0] + arr[1]);
-                for(int i = 0 ; i < arr.length ; i++) {
+                for(int i = 0 ; i < arr.length-1 ; i++) {
                     jComboBox1.removeItem(arr[i+1]);
                 }
                 
