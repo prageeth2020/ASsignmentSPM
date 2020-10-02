@@ -52,9 +52,9 @@ public class AddRoomsession extends javax.swing.JFrame {
     */
        
        for(AllocationsModel list:list1){
-           cSession.addItem(list.getConsessName1());
-           cSession1.addItem(list.getConsessName2());
-           cSession2.addItem(list.getConsessName3());
+           cSession.addItem(list.getConsessName());
+         /*  cSession1.addItem(list.getConsessName2());
+           cSession2.addItem(list.getConsessName3());*/
            
         //   map.put(list.getTag(), list.getTid());
             //System.out.println(list.getTag());
@@ -62,8 +62,8 @@ public class AddRoomsession extends javax.swing.JFrame {
        }
      //  System.out.println(map);
         cSession.getModel();
-         cSession1.getModel();
-          cSession2.getModel();
+      /*   cSession1.getModel();
+          cSession2.getModel();*/
         
         
     }
@@ -106,13 +106,9 @@ public class AddRoomsession extends javax.swing.JFrame {
         sessionDetails = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        cSession1 = new javax.swing.JComboBox();
-        jLabel17 = new javax.swing.JLabel();
-        cSession2 = new javax.swing.JComboBox();
         atime = new javax.swing.JComboBox();
         jLabel13 = new javax.swing.JLabel();
-        day = new javax.swing.JComboBox();
+        day1 = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -303,17 +299,13 @@ public class AddRoomsession extends javax.swing.JFrame {
 
         jLabel14.setText("Session Details");
 
-        jLabel15.setText("consecutive session1");
-
-        jLabel16.setText("consecutive session2");
-
-        jLabel17.setText("consecutive session3");
+        jLabel15.setText("consecutive session");
 
         atime.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "9.30", "10.30", "12.30", "1.30", "3.30", "5.30" }));
 
         jLabel13.setText("Time");
 
-        day.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
+        day1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
 
         jLabel1.setText("Day");
 
@@ -335,36 +327,28 @@ public class AddRoomsession extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(day, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cSession, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cSession1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(atime, javax.swing.GroupLayout.Alignment.LEADING, 0, 91, Short.MAX_VALUE)
-                                    .addComponent(cSession2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
-                                    .addGap(28, 28, 28)
-                                    .addComponent(jLabel13)))
-                            .addGap(141, 141, 141))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                            .addComponent(btnAssign4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton9)
-                            .addGap(45, 45, 45))
-                        .addGroup(jPanel9Layout.createSequentialGroup()
-                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap()))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cSession, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(atime, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnAssign4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(day1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(147, 147, 147))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addComponent(jButton9)
+                        .addGap(45, 45, 45))))
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(143, 143, 143)
                         .addComponent(jLabel14))
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(165, 165, 165)
+                        .addGap(166, 166, 166)
+                        .addComponent(jLabel13))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(169, 169, 169)
                         .addComponent(jLabel1)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -384,29 +368,18 @@ public class AddRoomsession extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cSession, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cSession1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cSession2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(atime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(day, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addComponent(jButton9)
-                        .addGap(47, 47, 47))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addComponent(btnAssign4)
-                        .addGap(59, 59, 59))))
+                .addComponent(day1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(btnAssign4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addComponent(jButton9)
+                .addGap(47, 47, 47))
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -535,7 +508,7 @@ public class AddRoomsession extends javax.swing.JFrame {
 
     private void btnAssign4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssign4ActionPerformed
         // TODO add your handling code here:
-        boolean flag = db.checkDateAndTime( (String)atime.getModel().getSelectedItem(),(String) day.getSelectedItem());
+        boolean flag = db.checkDateAndTime( (String)atime.getModel().getSelectedItem(),(String) day1.getSelectedItem());
        if (!flag) {
        
         AddRoom addRoom=new AddRoom();
@@ -552,12 +525,12 @@ public class AddRoomsession extends javax.swing.JFrame {
         rModel.setSessionRID(0);
         rModel.setName(rname);
         rModel.setSessionDetails(sessionDetails.getText());
-         rModel.setConsessName1((String) cSession.getModel().getSelectedItem());
-          rModel.setConsessName2((String) cSession1.getModel().getSelectedItem());
-           rModel.setConsessName3((String) cSession2.getModel().getSelectedItem());
+         rModel.setConsessName((String) cSession.getModel().getSelectedItem());
+        /*  rModel.setConsessName2((String) cSession1.getModel().getSelectedItem());
+           rModel.setConsessName3((String) cSession2.getModel().getSelectedItem());*/
            
             rModel.setAtime((String) atime.getSelectedItem());
-            rModel.setDay((String) day.getSelectedItem());
+            rModel.setDay((String)day1.getSelectedItem());
 
         rModel.setaRid(rtid);
         rModel.setAsessionID(sid);
@@ -673,9 +646,7 @@ public class AddRoomsession extends javax.swing.JFrame {
     private javax.swing.JButton btnSubject;
     private javax.swing.JButton btnTag;
     private javax.swing.JComboBox cSession;
-    private javax.swing.JComboBox cSession1;
-    private javax.swing.JComboBox cSession2;
-    private javax.swing.JComboBox day;
+    private javax.swing.JComboBox day1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -686,8 +657,6 @@ public class AddRoomsession extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
