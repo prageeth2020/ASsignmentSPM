@@ -173,18 +173,19 @@ public class DBOperation {
     boolean addSession(SessionClass S) {
         try {
             con = (Connection) DriverManager.getConnection(url, username, password);
-            String query = "Insert into student values (?,?,?,?,?,?,?,?)";
+            String query = "Insert into student values (?,?,?,?,?,?,?,? , ?)";
             pst = (PreparedStatement) con.prepareStatement(query);
 
-          /*  pst.setInt(1, s.getSid());
-            pst.setString(2, s.getAcademicYear());
-            pst.setString(3, s.getSemester());
-            pst.setString(4, s.getProgram());
-            pst.setString(5, s.getGroupNo());
-            pst.setString(6, s.getSubGroupNo());
-            pst.setString(7, s.getAcademicYear()+ "." + s.getSemester() + "." + s.getProgram() + "." + s.getGroupNo());
-            pst.setString(8, s.getAcademicYear()+ "." + s.getSemester() + "." + s.getProgram() + "." + s.getGroupNo() + "." + s.getSubGroupNo());*/
-
+            pst.setInt(1, S.getID());
+            pst.setString(2, S.getLectureName() );
+            pst.setString(3, S.getSubjectName());
+            pst.setString(4, S.getSubjectCode());
+            pst.setString(5, S.getTag());
+            pst.setString(6, S.getGroup());
+            pst.setString(7, S.getNoOfStudents());
+            pst.setString(8, S.getDuration());
+            pst.setString(9, S.getSessionName());
+            
             pst.executeUpdate();
 
             return true;
@@ -192,23 +193,6 @@ public class DBOperation {
         } catch (Exception e) {
             System.out.println(e);
             return false;
-        } finally {
-            if (pst != null) {
-                try {
-                    pst.close();
-                } catch (Exception e) {
-                    System.out.println(e);
-                    return false;
-                }
-            }
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception e) {
-                    System.out.println(e);
-                    return false;
-                }
-            }
         }
     }
     
