@@ -24,9 +24,9 @@ import java.util.Map;
  * @author PIYUMI
  */
 public class DBOperation {
-    String url = "jdbc:mysql://localhost:3306/spm";
-    String username = "root";
-    String password = "root";
+    String url = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12368421";
+    String username = "sql12368421";
+    String password = "lR47ncBEFD";
     Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
