@@ -32,9 +32,9 @@ public class LEcturers extends javax.swing.JFrame {
     public LEcturers() {
         initComponents();
         
-        String url = "jdbc:mysql://localhost:3306/spm";
-        String username = "root";
-        String password = "root";
+        String url = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12368421";
+        String username = "sql12368421";
+        String password = "lR47ncBEFD";
 
         
         
@@ -621,9 +621,9 @@ public class LEcturers extends javax.swing.JFrame {
         jTextField6.setText("");
         jComboBox2.setSelectedIndex(0);
 
-        String url = "jdbc:mysql://localhost:3306/spm";
-        String username = "root";
-        String password = "root";
+       String url = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12368421";
+        String username = "sql12368421";
+        String password = "lR47ncBEFD";
 
         System.out.println("Connecting database...");
 
@@ -661,9 +661,9 @@ public class LEcturers extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(this, "Lecturer Updated Successfull");
             String R =  (String) jComboBox2.getSelectedItem() + "." + jTextField2.getText();
-            String url = "jdbc:mysql://localhost:3306/spm";
-            String username = "root";
-            String password = "root";
+            String url = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12368421";
+            String username = "sql12368421";
+            String password = "lR47ncBEFD";
 
             System.out.println("Connecting database...");
 
@@ -737,9 +737,9 @@ public class LEcturers extends javax.swing.JFrame {
                         jTextField6.setText("");
                         jComboBox2.setSelectedIndex(0);
 
-                        String url = "jdbc:mysql://localhost:3306/spm";
-                        String username = "root";
-                        String password = "root";
+                        String url = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12368421";
+                        String username = "sql12368421";
+                        String password = "lR47ncBEFD";
 
                         System.out.println("Connecting database...");
 

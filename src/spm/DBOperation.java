@@ -40,7 +40,7 @@ public class DBOperation {
         try {
             
             Class.forName("com.mysql.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/spm", "root", "root");
+            con=DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12368421", "sql12368421", "lR47ncBEFD");
             
         } catch (Exception e) {
             System.out.println(e);

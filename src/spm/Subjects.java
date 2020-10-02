@@ -31,9 +31,9 @@ public class Subjects extends javax.swing.JFrame {
     public Subjects() {
         initComponents();
         
-       String url = "jdbc:mysql://localhost:3306/spm";
-        String username = "root";
-        String password = "root";
+       String url = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12368421";
+        String username = "sql12368421";
+        String password = "lR47ncBEFD";
 
         System.out.println("Connecting database...");
 
@@ -549,10 +549,10 @@ public class Subjects extends javax.swing.JFrame {
                 jTextField9.setText("");
 
 
-                 String url = "jdbc:mysql://localhost:3306/spm";
-                String username = "root";
-                String password = "root";
-
+                String url = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12368421";
+                String username = "sql12368421";
+                String password = "lR47ncBEFD";
+    
                 System.out.println("Connecting database...");
 
                 try (Connection connection = DriverManager.getConnection(url, username, password)) {
@@ -615,9 +615,9 @@ public class Subjects extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Subject Updated Successfull");
            
            
-            String url = "jdbc:mysql://localhost:3306/spm";
-            String username = "root";
-            String password = "root";
+            String url = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12368421";
+            String username = "sql12368421";
+            String password = "lR47ncBEFD";
             
             System.out.println("Connecting database...");
 
@@ -685,9 +685,9 @@ public class Subjects extends javax.swing.JFrame {
         jTextField9.setText("");
         
         
-        String url = "jdbc:mysql://localhost:3306/spm";
-        String username = "root";
-        String password = "root";
+        String url = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12368421";
+        String username = "sql12368421";
+        String password = "lR47ncBEFD";
 
         System.out.println("Connecting database...");
 
