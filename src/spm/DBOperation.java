@@ -26,7 +26,7 @@ import java.util.Map;
 public class DBOperation {
     String url = "jdbc:mysql://localhost:3306/spm";
     String username = "root";
-    String password = "root";
+    String password = "";
     Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
@@ -1346,7 +1346,7 @@ public class DBOperation {
         boolean assignRoomSession(AllocationsModel b) {
         try {
             con = (Connection) DriverManager.getConnection(url, username, password);
-            String query = "Insert into allocationsession values (?,?,?,?,?,?,?,?,?)";
+            String query = "Insert into allocationsession values (?,?,?,?,?,?,?,?)";
             pst = (PreparedStatement) con.prepareStatement(query);
          
     
@@ -1354,12 +1354,12 @@ public class DBOperation {
             pst.setInt(1, b.getSessionRID());
              pst.setString(2, b.getName());
             pst.setString(3, b.getSessionDetails());
-            pst.setString(4, b.getConsessName1());
-            pst.setString(5, b.getConsessName2());
-            pst.setString(6, b.getConsessName3());
-            pst.setInt(7, b.getaRid());
-            pst.setInt(8, b.getAsessionID());
-             pst.setString(9, b.getAtime());
+            pst.setString(4, b.getConsessName());
+           
+            pst.setInt(5, b.getaRid());
+            pst.setInt(6, b.getAsessionID());
+             pst.setString(7, b.getAtime());
+             pst.setString(8, b.getDay());
            
            
 
@@ -1404,9 +1404,8 @@ public class DBOperation {
             while (rs.next()) {
                 AllocationsModel amodel = new AllocationsModel();
                // amodel.setTid(rs.getInt(1));
-                amodel.setConsessName1(rs.getString(2));
-                 amodel.setConsessName2(rs.getString(3));
-                  amodel.setConsessName3(rs.getString(4));
+                amodel.setConsessName(rs.getString(2));
+                
                
               
                
