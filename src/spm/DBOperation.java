@@ -26,7 +26,7 @@ import java.util.Map;
 public class DBOperation {
     String url = "jdbc:mysql://localhost:3306/spm";
     String username = "root";
-    String password = "";
+    String password = "root";
     Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
