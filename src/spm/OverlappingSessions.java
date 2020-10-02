@@ -451,8 +451,11 @@ public class OverlappingSessions extends javax.swing.JFrame {
         OverlappingSessionsAdd os = new OverlappingSessionsAdd();
         os.setId(max);
         os.setAllNames(jLabel3.getText().toString());
-        db.addOverlappingSessions(os);
+        boolean result = db.addOverlappingSessions(os);
         
+        if(result){
+            JOptionPane.showMessageDialog(this, "Successfully Saved");
+        }
         jLabel3.setText("");
     }//GEN-LAST:event_jButton7ActionPerformed
 

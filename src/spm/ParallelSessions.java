@@ -471,7 +471,11 @@ public class ParallelSessions extends javax.swing.JFrame {
         ParallelSessionsAdd p = new ParallelSessionsAdd();
         p.setId(max);
         p.setSessionNames(jLabel3.getText().toString());
-        db.addPareralSession(p);
+        boolean result = db.addPareralSession(p);
+        
+        if(result){
+            JOptionPane.showMessageDialog(this, "Successfully Saved");
+        }
         
         jLabel3.setText("");
     }//GEN-LAST:event_jButton7ActionPerformed

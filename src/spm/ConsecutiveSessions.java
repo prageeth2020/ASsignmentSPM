@@ -477,7 +477,10 @@ public class ConsecutiveSessions extends javax.swing.JFrame {
         ConsecutiveSessionsAdd os = new ConsecutiveSessionsAdd();
         os.setId(max);
         os.setSessionName(jLabel3.getText().toString());
-        db.addConsecutiveSessions(os);
+        boolean result = db.addConsecutiveSessions(os);
+        if(result){
+            JOptionPane.showMessageDialog(this, "Successfully Saved");
+        }
         
         jLabel3.setText("");
     }//GEN-LAST:event_jButton7ActionPerformed
