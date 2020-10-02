@@ -606,7 +606,16 @@ public class Sessions extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox4ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        
+           SessionClass s = new SessionClass();
+           
+           s.setLectureName(lecturers);
+           s.setTag((String) jComboBox2.getSelectedItem());
+           s.setSubjectCode(jLabel7.getText().toString());
+           s.setSubjectName((String) jComboBox4.getSelectedItem());
+           s.setNoOfStudents(jTextField2.getText().toString());
+           s.setGroup((String) jComboBox3.getSelectedItem());
+           s.setDuration(jTextField1.getText().toString());
+           s.setSessionName(lecturers);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
