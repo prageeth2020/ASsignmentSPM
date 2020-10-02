@@ -707,6 +707,47 @@ public class DBOperation {
         }
     }
   
+  
+  //Not available times for sessions
+  boolean addNotAvailableTimesForSessions(NotAvailableTimesForSessions s) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "Insert into not_available_times_for_sessions values (?,?,?,?)";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            pst.setInt(1, s.getId());
+            pst.setString(2, s.getName());
+            pst.setString(3, s.getOn());
+            pst.setString(4, s.getAt());
+          
+            pst.executeUpdate();
+
+            return true;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+        }
+    }
+
+  
   //Consecutive Sessions
   boolean addConsecutiveSessions(ConsecutiveSessionsAdd s) {
         try {

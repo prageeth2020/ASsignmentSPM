@@ -631,6 +631,13 @@ public class Sessions extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jComboBox4ActionPerformed
 
+    public void refresh() {
+            ResultSet rs1 = null;
+            DBOperation dbo = new DBOperation();
+            
+            jLabel12.setText("0" + dbo.maxSesionID());
+            ID = dbo.maxSesionID();
+    }
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
            SessionClass s = new SessionClass();
            
@@ -646,6 +653,7 @@ public class Sessions extends javax.swing.JFrame {
            
            DBOperation db = new DBOperation();
            db.addSession(s);
+           this.refresh();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     /**

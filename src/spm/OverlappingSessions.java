@@ -29,6 +29,8 @@ public class OverlappingSessions extends javax.swing.JFrame {
     ResultSet rs = null;
     Statement st;
 
+    
+    String Sessions = "";
     /**
      * Creates new form OverlappingSessions
      */
@@ -91,6 +93,11 @@ public class OverlappingSessions extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
 
         jButton1.setText("ADD");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -403,6 +410,10 @@ public class OverlappingSessions extends javax.swing.JFrame {
         sd.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Sessions = Sessions + jComboBox1.getSelectedItem().toString();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
