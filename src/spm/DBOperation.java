@@ -703,7 +703,7 @@ public class DBOperation {
             ArrayList<AstudentStacModel> list = new ArrayList<AstudentStacModel>();
 
             con = (Connection) DriverManager.getConnection(url, username, password);
-            String query = "SELECT program,academicYear,semester ,count(DISTINCT groupNo), COUNT(subGroupNo),COUNT(sid) as NoOFStudent FROM `student`GROUP BY program,academicYear";
+            String query = "SELECT program,academicYear,semester ,count(DISTINCT groupNo), COUNT(DISTINCT subGroupNo),COUNT(sid) as NoOFStudent FROM `student`GROUP BY program,academicYear";
             pst = (PreparedStatement) con.prepareStatement(query);
 
             rs = pst.executeQuery();
@@ -1449,6 +1449,108 @@ public class DBOperation {
             return null;
         }
     }
+     
+     
+      boolean  checkDateAndTime(String time,String date) {
+         boolean status = false;
+        try {
+            System.out.println("[checkDateAndTime]");
+           // ArrayList<AllocationsModel> list = new ArrayList<AllocationsModel>();
+
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM allocationsession WHERE atime = ? AND day = ? ";
+                    //strQUERY;//"SELECT * FROM tag";
+            pst = (PreparedStatement) con.prepareStatement(query);
+            
+            if(time != null ){
+                  pst.setString(1, time);
+             }
+            if(date != null){
+                pst.setString(2, date);
+            }
+            rs = pst.executeQuery();
+            while (rs.next()) {
+               System.out.println("Value :"+rs.getInt(1));
+               status = true;
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
+        return status;
+    }
+     
+      ArrayList<AllocationsModel> getDataRoomFromSession() {
+        try {
+            ArrayList<AllocationsModel> list = new ArrayList<AllocationsModel>();
+
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM allocationsession";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            rs = pst.executeQuery();
+          
+            while (rs.next()) {
+                AllocationsModel amodel = new AllocationsModel();
+               // amodel.setTid(rs.getInt(1));
+                amodel.setName(rs.getString(2));
+                amodel.setSessionDetails(rs.getString(3));
+                 amodel.setaRid(rs.getInt(7));
+                 amodel.setAtime(rs.getString(9));
+                 amodel.setDay(rs.getString(10));
+                
+               
+              
+               
+                list.add(amodel);
+                
+                
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+      
+      
+      ArrayList<AllocationsModel>  checkRoomDateAndTime(String RoomName) {
+        
+        try {
+           
+            ArrayList<AllocationsModel> list = new ArrayList<AllocationsModel>();
+
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT sessionDetails,atime,day FROM allocationsession WHERE name = ? ";
+                    //strQUERY;//"SELECT * FROM tag";
+            pst = (PreparedStatement) con.prepareStatement(query);
+            
+            if(RoomName != null ){
+                  pst.setString(1, RoomName);
+             }
+            
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                
+                 AllocationsModel amodel = new AllocationsModel();
+              //System.out.println(rs.getString(1));
+               // System.out.println(rs.getString(2));
+               //  System.out.println(rs.getString(3));
+                 
+                 amodel.setSessionDetails(rs.getString(1));
+                  amodel.setAtime(rs.getString(2));
+                   amodel.setDay(rs.getString(3));
+                 list.add(amodel);
+               
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+       
+    }
+     
       
 
     /**

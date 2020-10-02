@@ -58,20 +58,19 @@ public class AsubjectStaticsDetails extends AbstractTableModel{
                 return list.get(rowIndex).getYears();
             case 1:
                 return list.get(rowIndex).getSem();
+            
             case 2:
-                return list.get(rowIndex).getSem();
-            case 3:
                 return list.get(rowIndex).getSubName();
-                 case 4:
+                 case 3:
                 return list.get(rowIndex).getSubCode();
-            case 5:
+            case 4:
                 return list.get(rowIndex).getLecHr();
-            case 6:
+            case 5:
                 return list.get(rowIndex).getTuteHr();
-            case 7:
+            case 6:
                 return list.get(rowIndex).getLabHr();
                 
-            case 8:
+            case 7:
                 return list.get(rowIndex).getEvlHr();
            
                 

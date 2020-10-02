@@ -40,6 +40,10 @@ public class AllocationsModel {
          
          //timeslot
          private String atime;
+         
+         //day
+         private String day;
+         
       
       
       
@@ -384,6 +388,20 @@ public class AllocationsModel {
      */
     public void setAtime(String atime) {
         this.atime = atime;
+    }
+
+    /**
+     * @return the day
+     */
+    public String getDay() {
+        return day;
+    }
+
+    /**
+     * @param day the day to set
+     */
+    public void setDay(String day) {
+        this.day = day;
     }
    
 }
