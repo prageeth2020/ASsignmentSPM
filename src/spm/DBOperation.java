@@ -50,7 +50,7 @@ public class DBOperation {
         
     }
     
-    public String maxSesionID() {
+    public int maxSesionID() {
         String ID = null;
         try {
             ResultSet rs = null ;
@@ -70,13 +70,14 @@ public class DBOperation {
             int ID2 = Integer.valueOf(ID);
             ID2 = ID2 + 1;
             
-            ID = String.valueOf(ID2);
+            //ID = String.valueOf(ID2);
             
-            return ID;
+            return ID2;
         } catch (SQLException ex) {
             Logger.getLogger(DBOperation.class.getName()).log(Level.SEVERE, null, ex);
+            return 1;
         }
-        return ID;
+        
     }
        
     public ResultSet getLecturers() {
