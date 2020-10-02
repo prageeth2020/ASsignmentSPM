@@ -1489,14 +1489,14 @@ public class DBOperation {
 
             rs = pst.executeQuery();
           
-            while (rs.next()) {
+           while (rs.next()) {
                 AllocationsModel amodel = new AllocationsModel();
                // amodel.setTid(rs.getInt(1));
                 amodel.setName(rs.getString(2));
                 amodel.setSessionDetails(rs.getString(3));
-                 amodel.setaRid(rs.getInt(7));
-                 amodel.setAtime(rs.getString(9));
-                 amodel.setDay(rs.getString(10));
+                 amodel.setaRid(rs.getInt(5));
+                 amodel.setAtime(rs.getString(7));
+                 amodel.setDay(rs.getString(8));
                 
                
               
