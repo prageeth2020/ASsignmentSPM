@@ -174,7 +174,7 @@ public class DBOperation {
     boolean addSession(SessionClass S) {
         try {
             con = (Connection) DriverManager.getConnection(url, username, password);
-            String query = "Insert into student values (?,?,?,?,?,?,?,? , ?)";
+            String query = "Insert into sessions values (?,?,?,?,?,?,?,? , ?)";
             pst = (PreparedStatement) con.prepareStatement(query);
 
             pst.setInt(1, S.getID());

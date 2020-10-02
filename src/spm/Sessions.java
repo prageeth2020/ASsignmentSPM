@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 public class Sessions extends javax.swing.JFrame {
 
     String lecturers = "" ;
+    int ID = 0;
     /**
      * Creates new form Sessions
      */
@@ -29,7 +30,8 @@ public class Sessions extends javax.swing.JFrame {
             ResultSet rs1 = null;
             DBOperation dbo = new DBOperation();
             
-            jLabel8.setText("Session " + dbo.maxSesionID());
+            jLabel12.setText("0" + dbo.maxSesionID());
+            ID = dbo.maxSesionID();
             rs1 = dbo.getLecturers();
             while(rs1.next()){
                 jComboBox1.addItem(rs1.getString("Name"));
@@ -632,6 +634,7 @@ public class Sessions extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
            SessionClass s = new SessionClass();
            
+           s.setID(ID);
            s.setLectureName(lecturers);
            s.setTag((String) jComboBox2.getSelectedItem());
            s.setSubjectCode(jLabel7.getText().toString());
@@ -640,6 +643,9 @@ public class Sessions extends javax.swing.JFrame {
            s.setGroup((String) jComboBox3.getSelectedItem());
            s.setDuration(jTextField1.getText().toString());
            s.setSessionName(jLabel10.getText().toString() + jLabel12.getText().toString());
+           
+           DBOperation db = new DBOperation();
+           db.addSession(s);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
