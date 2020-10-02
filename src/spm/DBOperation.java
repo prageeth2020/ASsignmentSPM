@@ -108,6 +108,35 @@ public class DBOperation {
         }
         
     }
+    public int maxConsecutiveSesionID() {
+        String ID = null;
+        try {
+            ResultSet rs = null ;
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            
+            String sql1 = "select MAX(id) from consecutive_sessions";
+            PreparedStatement statement1 = con.prepareStatement(sql1);
+            
+            rs = statement1.executeQuery();
+            
+            
+            while(rs.next())
+            {
+                ID = String.valueOf(rs.getInt(1));
+                
+            }
+            int ID2 = Integer.valueOf(ID);
+            ID2 = ID2 + 1;
+            
+            //ID = String.valueOf(ID2);
+            
+            return ID2;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBOperation.class.getName()).log(Level.SEVERE, null, ex);
+            return 1;
+        }
+        
+    }
     
     public int maxSesionID() {
         String ID = null;
@@ -861,13 +890,12 @@ public class DBOperation {
   boolean addConsecutiveSessions(ConsecutiveSessionsAdd s) {
         try {
             con = (Connection) DriverManager.getConnection(url, username, password);
-            String query = "Insert into consecutive_sessions values (?,?,?,?)";
+            String query = "Insert into consecutive_sessions values (?,?)";
             pst = (PreparedStatement) con.prepareStatement(query);
 
             pst.setInt(1, s.getId());
-            pst.setString(2, s.getSession1());
-            pst.setString(3, s.getSession2());
-            pst.setString(4, s.getSession3());
+            pst.setString(2, s.getSessionName());
+          
           
             pst.executeUpdate();
 
